@@ -1,0 +1,17 @@
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Applications
+set $browser firefox
+set $filemanager thunar
+set $term alacritty
+set $menu wofi --show run
+
+# Wallpaper
+output * bg ~/Pictures/wallpaper.jpg fill

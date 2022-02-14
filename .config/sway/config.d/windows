@@ -1,0 +1,15 @@
+# Gaps
+gaps inner 15 
+gaps outer 15
+
+# Border size
+default_border pixel 3
+
+# Only enable gaps on a workspace when there is at least one container
+smart_gaps on
+
+# Activate smart borders (only when there are effectively no gaps)
+smart_borders no_gaps
+
+for_window [title="Picture-in-Picture"] sticky enable
+for_window [title="Picture-in-Picture"] floating enable

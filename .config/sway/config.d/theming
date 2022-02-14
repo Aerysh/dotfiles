@@ -1,0 +1,13 @@
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Nordic'
+    gsettings set $gnome-schema icon-theme 'Papirus'
+    gsettings set $gnome_schema font-name 'SourceCodePro 12'
+}
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c566a #4c566a #eceff4 #5e81ac   #5e81ac
+client.focused_inactive #2e3440 #2e3440 #eceff4 #2e3440   #2e3440
+client.unfocused        #2e3440 #3b4252 #eceff4 #5e81ac   #2e3440
+client.urgent           #ebcb8b #2e3440 #eceff4 #bf616a   #ebcb8b

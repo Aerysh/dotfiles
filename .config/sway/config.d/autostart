@@ -1,0 +1,8 @@
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec eval $(gnome-keyring-daemon --start)
+exec pipewire
+exec pipewire-pulse
+exec dunst
+exec blueman-applet
+exec nm-applet --indicator
+exec wl-paste -t text --watch clipman store
