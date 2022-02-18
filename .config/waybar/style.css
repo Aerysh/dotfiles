@@ -1,75 +1,180 @@
+/* 
+Nord Color Scheme
+*/
+@define-color bg #3b4252;
+@define-color fg #d8dee9;
+@define-color highlight #5e81ac;
+
 * {
-font-size: 20px;
-font-family: monospace;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 1px;
+  padding: 0;
 }
 
-window#waybar {
-background: #3b4252;
-color: #eceff4;
+/* The whole bar */
+#waybar {
+  background: transparent;
+  color: @fg;
+  background-color: @bg;
+  font-family: JetbrainsMono;
+  font-size: 14px;
 }
 
-#custom-right-arrow-dark,
-#custom-left-arrow-dark {
-color: #2e3440;
-}
-#custom-right-arrow-light,
-#custom-left-arrow-light {
-color: #3b4252;
-background: #2e3440;
-}
+/* All Modules */
 
-#workspaces,
-#clock.1,
-#clock.2,
-#clock.3,
-#pulseaudio,
-#memory,
-#cpu,
 #battery,
-#disk,
-#tray {
-background: #2e3440;
-}
-
-#workspaces button {
-padding: 0 2px;
-color: #4c566a;
-}
-#workspaces button.focused {
-color: #d8dee9;
-}
-#workspaces button:hover {
-box-shadow: inherit;
-text-shadow: inherit;
-}
-#workspaces button:hover {
-background: #2e3440;
-border: #2e3440;
-padding: 0 3px;
-}
-
-#pulseaudio {
-color: #bf616a;
-}
-#memory {
-color: #d08770;
-}
-#cpu {
-color: #ebcb8b;
-}
-#battery {
-color: #a3be8c;
-}
-#disk {
-color: #b48ead;
-}
-
+#backlight,
 #clock,
-#pulseaudio,
-#memory,
 #cpu,
-#battery,
-#disk {
-padding: 0 10px;
+#custom-keyboard-layout,
+#memory,
+#mode,
+#custom-weather,
+#network,
+#pulseaudio,
+#temperature,
+#tray,
+#idle_inhibitor,
+#custom-PBPbattery {
+  padding: 0.5rem 0.6rem;
+  margin: 1px 5px;
+  /* background-color: @base2;*/
 }
 
+/* Workspace Style */
+
+#workspaces button{
+    border-bottom: 0px solid transparent;
+    margin: 1px 5px;
+    color: @highlight;
+    padding:0px;
+}
+
+#workspaces button.focused {
+    border-bottom: 0px solid  @highlight;
+    margin-bottom: 1px;
+    padding-left:0;
+    color: @fg;
+}
+
+#workspaces button.urgent {
+    border-color: #bf616a;
+    color: #bf616a;
+}
+
+/* Tray Style */
+
+#tray {
+    
+    border-bottom-left-radius: 50px ;
+    border-top-left-radius: 50px ;
+   /* border-right: 3px solid  @highlight;*/
+}
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #bf616a;
+}
+
+/* Battery Style */
+
+#battery {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    color: #a3be8c;
+}
+
+#battery.warning {
+    color: #ebcb8b;
+}
+
+#battery.critical {
+    color: #bf616a;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+/* Cpu Style */
+
+#cpu {
+    color: #88c0d0;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cpu.warning {
+    color: #ebcb8b;
+}
+
+#cpu.critical {
+    color: #bf616a;
+}
+
+/* Memory Style */
+#memory {
+    color: #88c0d0;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#memory.warning {
+    color: #ebcb8b;
+ }
+
+#memory.critical {
+    color: #bf616a;
+    animation-name: blink-critical;
+    animation-duration: 2s;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+/* Clock Style */
+
+#clock {
+    border-radius:50px;
+}
+
+/* Audio Style */
+#pulseaudio {
+    color: #b48ead;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+#pulseaudio.muted {
+    color: #bf616a;
+}
+
+#disk {
+    color: #b48ead;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+#custom-power {
+    margin-left:0px;
+    margin-right:0px;
+    border-radius: 50px ;
+    /*background-color: @base2;*/
+    font-size: 18px;
+    color: #bf616a;
+}
