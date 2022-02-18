@@ -8,14 +8,14 @@ Wallpaper   :   [nordthemeswallpaper](https://nordthemewallpapers.com/16-9/)
 
 Terminal    :   [Alacritty](https://alacritty.org/)
 
-Fonts       :   [SourceCodePro](https://github.com/adobe-fonts/source-code-pro)
+Fonts       :   Jetbrains Mono
 
 Icons       :   [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
 
 ## Screenshots
 
-![Desktop](./Screenshots/2022-02-14_12:38:47.png)
+![ss1](./Screenshots/2022-02-18_12:32:23.png)
 
-![Layout](./Screenshots/2022-02-14_12:41:05.png)
+![ss2](./Screenshots/2022-02-18_12:33:48.png)
 
-![Code](./Screenshots/2022-02-14_12:47:11.png)
+![ss3](./Screenshots/2022-02-18_12:34:38.png)
