@@ -1,8 +1,11 @@
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec eval $(gnome-keyring-daemon --start)
+exec_always "systemctl --user import-environment; systemctl --user start sway-session.target"
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec pipewire
 exec pipewire-pulse
 exec dunst
 exec blueman-applet
 exec nm-applet --indicator
 exec wl-paste -t text --watch clipman store
+exec thunar --daemon
