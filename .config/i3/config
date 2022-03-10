@@ -1,0 +1,305 @@
+# Modified version based on default i3-config-wizard config
+# Ahmad Azwar Annas <ahmadazw2@gmail.com>
+
+################
+# Start Config #
+################
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+
+font pango:JetBrainsMono Nerd Font 8
+
+# set the mod key to the winkey:
+set $mod Mod4
+
+####################
+# Workspace Layout #
+####################
+
+# default i3 tiling mode:
+workspace_layout default
+
+##############################
+# extra options for windows: #
+##############################
+
+#border indicator on windows:
+new_window pixel 1
+
+# Set inner/outer gaps
+gaps inner 6
+gaps outer 3
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# switch to workspace
+bindsym $mod+1    workspace  $ws1
+bindsym $mod+2    workspace  $ws2
+bindsym $mod+3    workspace  $ws3
+bindsym $mod+4    workspace  $ws4
+bindsym $mod+5    workspace  $ws5
+bindsym $mod+6    workspace  $ws6
+bindsym $mod+7    workspace  $ws7
+bindsym $mod+8    workspace  $ws8
+bindsym $mod+9    workspace  $ws9
+bindsym $mod+0    workspace  $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1    move container to workspace  $ws1
+bindsym $mod+Shift+2    move container to workspace  $ws2
+bindsym $mod+Shift+3    move container to workspace  $ws3
+bindsym $mod+Shift+4    move container to workspace  $ws4
+bindsym $mod+Shift+5    move container to workspace  $ws5
+bindsym $mod+Shift+6    move container to workspace  $ws6
+bindsym $mod+Shift+7    move container to workspace  $ws7
+bindsym $mod+Shift+8    move container to workspace  $ws8
+bindsym $mod+Shift+9    move container to workspace  $ws9
+bindsym $mod+Shift+0    move container to workspace  $ws10
+
+# resize window (you can also use the mouse for that):
+#mode "resize" {
+# These bindings trigger as soon as you enter the resize mode
+# Pressing left will shrink the window's width.
+# Pressing right will grow the window's width.
+# Pressing up will shrink the window's height.
+# Pressing down will grow the window's height.
+#        bindsym j resize shrink width 10 px or 10 ppt
+#        bindsym k resize grow height 10 px or 10 ppt
+#        bindsym l resize shrink height 10 px or 10 ppt
+#        bindsym ntilde resize grow width 10 px or 10 ppt
+
+# same bindings, but for the arrow keys
+#	bindsym Left resize shrink width 10 px or 10 ppt
+#        bindsym Down resize grow height 10 px or 10 ppt
+#        bindsym Up resize shrink height 10 px or 10 ppt
+#        bindsym Right resize grow width 10 px or 10 ppt
+
+# back to normal: Enter or Escape
+#	bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#}
+
+#bindsym $mod+r mode "resize"
+
+###############
+# keybindings #
+###############
+
+# start a terminal
+bindsym $mod+Return exec alacritty
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to update i3)
+bindsym $mod+Shift+r restart
+
+# Backlight Control
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%- && notify-send "Brightness Decreased"
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+ && notify-send "Brightness Increased"
+
+set $volume pactl get-sink-volume @DEFAULT_SINK@ | grep 'Volume:' | awk '{print $5}'
+
+# Volume Control
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && dunstify -a "changeVolume" -h string:x-dunst-stack-tag:audio "Volume:" -h string:value "`$volume`"
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && dunstify -a "changeVolume" -h string:x-dunst-stack-tag:audio "Volume:" -h string:value "`$volume`"
+
+# Mute
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# audio control
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+b focus up
+bindsym $mod+o focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+g layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# App Shortcut
+bindsym $mod+Shift+b exec firefox
+bindsym $mod+Shift+f exec thunar
+bindsym Print exec scrot ~/Pictures/Screenshots/%d-%m-%Y-%T-screenshot.png && notify-send "Screenshot saved to ~/Pictures/Screenshots/$(date +"%d-%m-%Y-%T")-screenshot.png"
+
+##########################################
+# configuration for workspace behaviour: #
+##########################################
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# bind program to workspace and focus to them on startup:
+assign [class="Alacritty"] $ws1
+assign [class="(?i)firefox"] $ws2
+assign [class="Thunar"] $ws3
+assign [class="Steam"] $ws4
+assign [class="discord"] $ws5
+
+# automatic set focus new window if it opens on another workspace then the current:
+for_window [class=Alacritty] focus
+for_window [class=(?i)firefox] focus
+for_window [class=Thunar] focus
+for_window [class=Steam] focus
+for_window [class=discord] focus
+
+##############
+# compositor #
+##############
+
+# transparency
+# uncomment one of them to be used (picom package is installed per default)
+# options could need changes, related to used GPU and drivers.
+# to find the right setting consult the archwiki or ask at the forum.
+#
+# xcompmgr: https://wiki.archlinux.org/title/Xcompmgr
+# manpage: https://man.archlinux.org/man/xcompmgr.1.en
+#exec --no-startup-id xcompmgr -C -n &
+# or an more specialized config like this:
+#exec --no-startup-id xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
+#
+# or:
+#
+# picom: https://wiki.archlinux.org/title/Picom
+# manpage: https://man.archlinux.org/man/picom.1.en
+# exec_always --no-startup-id picom -b
+# exec_always --no-startup-id killall picom && picom -b
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+
+#############################################
+# autostart applications/services on login: #
+#############################################
+
+# get auth work with polkit-gnome
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# dex execute .desktop files
+# keep in mind that it can cause issues
+# when second to i3 a DE is installed or mixed usage of i3 + xfce4 or GNOME
+# in this cases better disable dex and use manual starting apps using xdg/autostart
+# if enabled you should comment welcome app.
+#exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
+# exec --no-startup-id dex --autostart --environment i3
+
+# Desktop notifications
+exec_always --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
+
+# Set Wallpaper
+exec --no-startup-id feh --bg-fill ~/Pictures/Kraken.png
+
+# Block Middle Mouse Copy/Paste
+exec --no-startup-id xmousepasteblock
+
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+###############
+# system tray #
+###############
+# if you do not use dex: exec --no-startup-id dex --autostart --environment i3
+# you need to have tray apps started here:
+
+# start blueman app for managing bluetooth devices from tray:
+exec --no-startup-id blueman-applet
+
+# networkmanager-applet
+exec --no-startup-id nm-applet
+
+# clipman-applet
+exec --no-startup-id xfce4-clipman
+
+# Optimus manager gui for optimus laptop
+exec --no-startup-id optimus-manager-qt
+
+##################
+# floating rules #
+##################
+
+for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window [class="qt5ct" instance="qt5ct"] floating enable
+for_window [class="helvum" instance="helvum"] floating enable
+# set border of floating window
+for_window [class="urxvt"] border pixel 1
+
+# set position of floating window
+for_window [class=".*"] move position center
+
+######################################
+# color settings for bar and windows #
+######################################
+
+# Define colors for windows
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background       #F8F8F2
+
+#####################################
+# Application menu handled by rofi: #
+#####################################
+
+bindsym $mod+d exec rofi -modi drun -show drun -theme '~/.config/rofi/config.rasi' -icon-theme Papirus -show-icons
