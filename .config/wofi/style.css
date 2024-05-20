@@ -1,0 +1,68 @@
+@define-color lavender  #be95ff;
+@define-color text #f4f4f4;
+@define-color surface0 #262626;
+@define-color base #161616;
+
+#entry {
+  border-radius: 8px;
+  padding: 4px 2px 4px 2px;
+  margin: 0px 4px 0px 4px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#entry:selected {
+  color: @text;
+  background-color: rgba (255, 77, 86, 0.3);
+  padding: 8px;
+}
+
+#text:selected {
+  color: @text;
+}
+
+#window {
+  animation-name: fadeIn;
+  animation-duration: 0.6s;
+  background-color: rgba(22, 22, 22, 0.9);
+  font-family: JetBrainsMono Nerd Font;
+  border-radius: 8px;
+}
+
+#input {
+  border: none;
+  background-color: rgba (0, 0, 0, 0.6);
+  border-radius: 8px;
+  margin: 4px 4px 8px 4px;
+  padding: 8px;
+}
+
+#inner-box {
+  color: rgba (255, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+#outer-box {
+  background-color: rgba (0, 0, 0, 0.5);
+  border-radius: 8px;
+  border: 1px solid @lavender;
+}
+
+#scroll {
+}
+
+#text {
+  color: @text;
+  background-color: transparent;
+}
+
+#img {
+  background-color: transparent;
+}

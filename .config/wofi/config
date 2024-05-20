@@ -1,0 +1,11 @@
+location=middle
+show=drun
+width=720
+height=480
+always_parse_args=true
+show_all=true
+print_command=true
+layer=overlay
+insensitive=true
+prompt=
+
