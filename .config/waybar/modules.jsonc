@@ -1,0 +1,203 @@
+{
+  // Left modules
+  "cpu": {
+    "format": "{usage}% 󰻠",
+    "interval": 1,
+    "format-alt-click": "click",
+    "format-alt": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% ",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+  },
+
+  "memory": {
+    "interval": 1,
+    "format": "{used:0.1f}G 󰓅",
+    "format-alt": "{percentage}% 󰓅",
+    "format-alt-click": "click",
+    "tooltip": true,
+    "tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
+  },
+
+  "temperature": {
+    "interval": 5,
+    "tooltip": true,
+    "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+    "input-filename": "temp1_input",
+    "critical-threshold": 82,
+    "format-critical": "{temperatureC}°C 󰔏",
+    "format": "{temperatureC}°C 󰔏",
+  },
+
+  "group/motherboard": {
+    "orientation": "horizontal",
+    "modules": ["cpu", "memory", "temperature"],
+    "on-click-right": "kitty sh -c 'btop'",
+  },
+
+  "backlight": {
+    "interval": 1,
+    "format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"],
+    "format": "{icon}",
+    "tooltip-format": "backlight {percent}%",
+    "smooth-scrolling-threshold": 1,
+  },
+
+  "battery": {
+    "full-at": 100,
+    "design-capacity": false,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󱐋 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-alt-click": "click",
+    "format-full": "{icon}",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-time": "{H}h {M}min",
+    "tooltip": true,
+    "tooltip-format": "{timeTo} {power}w",
+  },
+
+  "group/laptop": {
+    "orientation": "horizontal",
+    "modules": ["backlight", "battery"],
+  },
+
+  // Center modules
+  "hyprland/workspaces": {
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "show-special": false,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+    },
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十",
+    },
+  },
+
+  // Right Modules
+  "tray": {
+    "icon-size": 12,
+    "spacing": 8,
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} 󰂰 {volume}%",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󱡏",
+      "headset": "󰋎",
+      "phone": "󰏲",
+      "portable": "󰏲",
+      "car": "󰄋",
+      "default": ["󰕿", "󰖀", "󰕾"],
+    },
+    "scroll-step": 5.0,
+    "on-click": "pavucontrol -t 3",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "tooltip-format": "{icon} {desc} | {volume}%",
+    "smooth-scrolling-threshold": 1,
+    "ignored-sinks": ["Easy Effects Sink"],
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "󰍬 {volume}%",
+    "format-source-muted": "󰍭",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-click-right": "pavucontrol -t 4",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
+    "tooltip-format": "{source_desc} | {source_volume}%",
+    "scroll-step": 5,
+  },
+
+  "group/audio": {
+    "orientation": "horizontal",
+    "modules": ["pulseaudio", "pulseaudio#microphone"],
+  },
+
+  "clock": {
+    "interval": 60,
+    "format": "{:%a %d %b %H:%M}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ff7eb6'><b>{}</b></span>",
+        "days": "<span color='#f4f4f4'><b>{}</b></span>",
+        "weeks": "<span color='#fddc69'><b>W{}</b></span>",
+        "weekdays": "<span color='#3ddbd9'><b>{}</b></span>",
+        "today": "<span color='#fa4d56'><b><u>{}</u></b></span>",
+      },
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+    },
+  },
+
+  "custom/notification": {
+    "tooltip": true,
+    "format": "{icon} {}",
+    "format-icons": {
+      "notification": "󰂚<span foreground='#fa4d56'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "󰂛<span foreground='#fa4d56'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "󰂚<span foreground='#fa4d56'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "󰂛<span foreground='#fa4d56'><sup></sup></span>",
+      "dnd-inhibited-none": "",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+  },
+
+  "custom/power": {
+    "format": "󰐥",
+    "on-click": "wlogout",
+    "interval": 86400,
+    "tooltip": false,
+  },
+
+  "custom/separator": {
+    "format": "|",
+    "interval": "once",
+    "tooltip": false,
+  },
+}

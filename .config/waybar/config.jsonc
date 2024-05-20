@@ -1,0 +1,26 @@
+{
+  "include": "$HOME/.config/waybar/modules.jsonc",
+  "layer": "top",
+  "exclusive": true,
+  "passthrough": false,
+  "position": "top",
+  "spacing": 4,
+  "fixed-center": true,
+  "ipc": true,
+  "margin-top": 4,
+  "margin-left": 4,
+  "margint-right": 4,
+
+  "modules-left": ["group/motherboard", "custom/separator", "group/laptop"],
+
+  "modules-center": ["hyprland/workspaces"],
+
+  "modules-right": [
+    "tray",
+    "custom/separator",
+    "group/audio",
+    "custom/separator",
+    "custom/notification",
+    "clock",
+  ],
+}
