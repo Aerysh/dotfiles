@@ -27,6 +27,7 @@ setopt hist_find_no_dups
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -l --color=always --icons $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -l --color=always --icons $realpath'
 
 # Aliases
 alias ls="eza --color=auto --icons"
@@ -46,3 +47,4 @@ alias ..="cd .."
 alias icat="kitten icat"
 
 eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
