@@ -1,5 +1,5 @@
 export PNPM_HOME=$HOME/.local/share/pnpm
-export BOB_HOME=$HOME/local/share/bob/nvim-bin
+export BOB_HOME=$HOME/.local/share/bob/nvim-bin
 export PATH=$PNPM_HOME:$PATH
 export PATH=$BOB_HOME:$PATH
 export PATH=$HOME/.scripts:$PATH
