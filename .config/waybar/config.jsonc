@@ -4,23 +4,13 @@
   "exclusive": true,
   "passthrough": false,
   "position": "top",
-  "spacing": 4,
   "fixed-center": true,
   "ipc": true,
+  "spacing": 4,
   "margin-top": 4,
   "margin-left": 4,
   "margint-right": 4,
-
-  "modules-left": ["group/motherboard", "custom/separator", "group/laptop"],
-
+  "modules-left": ["backlight", "battery", "idle_inhibitor"],
   "modules-center": ["hyprland/workspaces"],
-
-  "modules-right": [
-    "tray",
-    "custom/separator",
-    "group/audio",
-    "custom/separator",
-    "custom/notification",
-    "clock",
-  ],
+  "modules-right": ["tray", "custom/notification", "group/system"],
 }
