@@ -1,0 +1,22 @@
+font=Iosevka Nerd Font 12
+
+background-color=#161616
+text-color=#f4f4f4
+width=320
+height=256
+padding=12
+margin=12
+progress-color=over #26262680
+icon-path=/usr/share/icons/Arc-X-D
+max-icon-size=64
+layer=overlay
+
+border-size=1
+border-radius=8
+border-color=#be95ff
+
+default-timeout=5000
+
+[urgency=high]
+
+ignore-timeout=1
