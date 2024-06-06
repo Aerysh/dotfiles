@@ -1,153 +1,167 @@
 @import "colors.css";
 
+@keyframes blink-warning {
+  70% {
+    color: @text;
+  }
+
+  to {
+    color: @text;
+    background-color: @peach;
+  }
+}
+
+@keyframes blink-critical {
+  70% {
+    color: @text;
+  }
+
+  to {
+    color: @text;
+    background-color: @red;
+  }
+}
+
 * {
-  font-family: "Symbols Nerd Font, RobotoMono Nerd Font, JetBrainsMono Nerd Font";
-  font-weight: bold;
-  font-size: 12px;
+  border: none;
+  border-radius: 0;
   min-height: 0;
-  padding: 1px;
+  margin: 1px;
+  padding: 0;
 }
 
-window#waybar {
-  background-color: transparent;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  border-radius: 8px;
-}
-
-window#waybar.hidden {
-  opacity: 0.2;
-}
-
-#waybar.empty #window {
-  background: none;
-}
-
-.modules-left,
-.modules-center {
+#waybar {
+  color: @text;
   background: @base;
-  padding: 2px 6px 2px 6px;
-  border-radius: 8px;
+  font-family:
+    Symbols Nerd Font,
+    Iosevka Nerd Font Mono;
+  font-size: 12px;
 }
 
-#system {
-  background: @base;
-  padding: 2px 6px 2px 6px;
-  border-radius: 8px;
-}
-
-#backlight,
 #battery,
 #clock,
+#backlight,
 #cpu,
-#custom-notification,
-#idle_inhibitor,
 #memory,
 #network,
 #pulseaudio,
-#tray {
-  padding: 2px 6px 2px 6px;
-}
-
-#backlight {
-  color: @sky;
+#temperature,
+#tray,
+#idle_inhibitor {
+  padding: 4px;
+  margin: 4px;
 }
 
 #battery {
-  color: @green;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
-#clock {
-  color: @teal;
+#battery.warning {
+  color: @peach;
 }
 
-#cpu {
-  color: @mauve;
+#battery.critical {
+  color: @red;
 }
 
-#custom-notification {
-  background: @base;
-  color: @text;
-  border-radius: 8px;
-  padding: 2px 6px 2px 6px;
+#battery.warning.discharging {
+  animation-name: blink-warning;
+  animation-duration: 3s;
 }
 
-#idle_inhibitor {
-  color: @yellow;
+#battery.critical.discharging {
+  animation-name: blink-critical;
+  animation-duration: 2s;
 }
 
-#network {
-  color: @pink;
+#cpu.warning {
+  color: @peach;
+}
+
+#cpu.critical {
+  color: @red;
 }
 
 #memory {
-  color: @sapphire;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
-#pulseaudio {
-  color: @lavender;
+#memory.warning {
+  color: @peach;
 }
 
-#pulseaudio.bluetooth {
-  color: @blue;
+#memory.critical {
+  color: @red;
+  animation-name: blink-critical;
+  animation-duration: 2s;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#network.disconnected {
+  color: @peach;
 }
 
 #pulseaudio.muted {
-  color: @red;
-}
-
-#tray {
-  background: @base;
-  border-radius: 8px;
-}
-
-#tray > .passive {
-  -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-  -gtk-icon-effect: highlight;
-}
-
-#workspaces button {
-  padding: 0px;
-  border-radius: 8px;
-  padding-left: 2px;
-  padding-right: 2px;
-}
-
-#workspaces button:hover {
-  color: @blue;
-  background: @surface0;
-  padding-left: 2px;
-  padding-right: 2px;
-}
-
-#workspaces button.persistent {
   color: @overlay2;
 }
 
-#workspaces button.active {
-  color: @peach;
-  background: @surface0;
-  padding-left: 2px;
-  padding-right: 2px;
-}
-
-#workspaces button.urgent {
+#temperature.critical {
   color: @red;
 }
 
-tooltip {
-  background-color: @surface0;
+#window {
+  font-weight: bold;
 }
 
-tooltipe label {
+#workspaces {
+  font-size: 12px;
+  color: @overlay2;
+  background-color: @surface0;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+#workspaces button {
   color: @text;
 }
 
-@keyframes blink {
-  to {
-    color: @surface0;
-  }
+#workspaces button:hover {
+  color: @text;
+  background: @surface1;
+  border-radius: 8px;
+}
+
+#workspaces button.empty {
+  color: @overlay2;
+}
+
+#workspaces button.visible {
+  color: @blue;
+}
+
+#workspaces button.active {
+  color: @green;
+}
+
+#workspaces button.urgent {
+  background-color: @red;
+  color: @text;
+}
+
+#custom-power {
+  margin-left: 12px;
+  margin-right: 12px;
+  font-size: 12px;
+}
+
+#custom-launcher {
+  font-size: 12px;
+  margin-left: 12px;
+  margin-right: 12px;
 }
