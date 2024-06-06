@@ -9,28 +9,22 @@
   font-family: Iosevka Nerd Font Mono;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 #window {
-  animation-name: fadeIn;
-  animation-duration: 300ms;
   background: rgba(22, 22, 22, 0.9);
   border-radius: 8px;
+  animation-name: fadeIn;
+  animation-duration: 300ms;
 }
 
-#input {
-  border: none;
-  background: rgba(0, 0, 0, 0.8);
+#entry {
   border-radius: 8px;
-  margin: 2px 4px 2px 4px;
-  padding: 8px;
+  padding: 2px 4px 2px 4px;
+  margin: 0px 4px 0px 4px;
+}
+
+#entry:selected {
+  color: @text;
+  background: @blue;
 }
 
 #inner-box {
@@ -49,13 +43,11 @@
   background: transparent;
 }
 
-#entry {
-  border-radius: 8px;
-  padding: 4px 2px 4px 2px;
-  margin: 0px 4px 0px 4px;
-}
-
-#entry:selected {
-  color: @text;
-  background: @blue;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
