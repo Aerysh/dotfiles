@@ -13,7 +13,6 @@ export XDG_TEMPLATES_DIR=$HOME/Templates
 export XDG_VIDEOS_DIR=$HOME/Videos
 
 export GPG_TTY="${TTY:-$(tty)}"
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/gcr/ssh
 
 export PNPM_HOME=$HOME/.local/share/pnpm
 export PATH=$PNPM_HOME:$PATH
