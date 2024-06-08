@@ -6,8 +6,7 @@
   }
 
   to {
-    color: @text;
-    background-color: @peach;
+    color: @peach;
   }
 }
 
@@ -17,8 +16,7 @@
   }
 
   to {
-    color: @text;
-    background-color: @red;
+    color: @red;
   }
 }
 
@@ -35,6 +33,7 @@
   background: @base;
   font-family:
     Symbols Nerd Font,
+    Iosevka Nerd Font,
     Noto Sans;
   font-size: 12px;
 }
@@ -53,54 +52,28 @@
   margin: 4px;
 }
 
-#battery {
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-#battery.warning {
-  color: @peach;
-}
-
-#battery.critical {
-  color: @red;
-}
-
 #battery.warning.discharging {
-  animation-name: blink-warning;
-  animation-duration: 3s;
+  animation: blink-warning 2s linear infinite alternate;
 }
 
 #battery.critical.discharging {
-  animation-name: blink-critical;
-  animation-duration: 2s;
+  animation: blink-critical 2s linear infinite alternate;
 }
 
 #cpu.warning {
-  color: @peach;
+  animation: blink-warning 2s linear infinite alternate;
 }
 
 #cpu.critical {
-  color: @red;
-}
-
-#memory {
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation: blink-critical 2s linear infinite alternate;
 }
 
 #memory.warning {
-  color: @peach;
+  animation: blink-warning 2s linear infinite alternate;
 }
 
 #memory.critical {
-  color: @red;
-  animation-name: blink-critical;
-  animation-duration: 2s;
-  padding-left: 4px;
-  padding-right: 4px;
+  animation: blink-critical 2s ease-in-out infinite alternate;
 }
 
 #network.disconnected {
@@ -111,17 +84,13 @@
   color: @overlay2;
 }
 
-#temperature.critical {
-  color: @red;
-}
-
 #window {
   font-weight: bold;
 }
 
 #workspaces {
   font-size: 12px;
-  color: @overlay2;
+  color: @text;
   background-color: @surface0;
   border-radius: 8px;
   padding: 4px;
@@ -152,6 +121,11 @@
 #workspaces button.urgent {
   background-color: @red;
   color: @text;
+}
+
+#tray {
+  background: @surface0;
+  border-radius: 8px;
 }
 
 #custom-power {

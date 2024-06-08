@@ -1,6 +1,6 @@
 {
   "custom/launcher": {
-    "format": "",
+    "format": "󱓞",
     "on-click": "exec wofi -IS drun",
     "tooltip": false,
   },
@@ -36,9 +36,9 @@
 
   "network": {
     "interval": 5,
-    "format-wifi": " {signalStrength}%", // Icon: wifi
-    "format-ethernet": " {ifname}", // Icon: ethernet
-    "format-disconnected": " Disconnected",
+    "format-wifi": "󰖩 {signalStrength}%", // Icon: wifi
+    "format-ethernet": "󰈀 {ifname}", // Icon: ethernet
+    "format-disconnected": "󰈂 Disconnected",
     "tooltip-format": "{ifname}: {ipaddr}",
     "on-click": "kitty -e 'nmtui'",
   },
@@ -46,14 +46,14 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "",
-      "deactivated": "",
+      "activated": "󰈈",
+      "deactivated": "󰛑",
     },
   },
 
   "memory": {
     "interval": 5,
-    "format": " {}%", // Icon: memory
+    "format": "󰍛 {}%",
     "on-click": "kitty -e 'btop'",
     "states": {
       "warning": 70,
@@ -63,7 +63,7 @@
 
   "cpu": {
     "interval": 5,
-    "format": " {usage}%", // Icon: microchip
+    "format": "󰻠 {usage}%",
     "states": {
       "warning": 70,
       "critical": 90,
@@ -72,21 +72,21 @@
   },
 
   "pulseaudio": {
-    "scroll-step": 1, // %, can be a float
+    "scroll-step": 5,
     "format": "{icon} {volume}%",
-    "format-bluetooth": "{icon} {volume}%  {format_source}",
-    "format-bluetooth-muted": " {icon}  {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": " {volume}%",
-    "format-source-muted": "",
+    "format-bluetooth": "{icon} {volume}% 󰂯 {format_source}",
+    "format-bluetooth-muted": "󰝟 {icon} 󰂯 {format_source}",
+    "format-muted": "󰝟 {format_source}",
+    "format-source": "󰍬 {volume}%",
+    "format-source-muted": "󰍭",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": [""],
+      "headphone": "󰋋",
+      "hands-free": "󱡏",
+      "headset": "󰋎",
+      "phone": "󰏲",
+      "portable": "󰏲",
+      "car": "󰄋",
+      "default": ["󰕿", "󰖀", "󰕾"],
     },
     "on-click": "pavucontrol",
     "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
@@ -101,18 +101,18 @@
     "format": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
     "format-plugged": " {capacity}%",
-    "format-icons": ["", "", "", "", ""],
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
   },
 
   "backlight": {
-    "format": "{percent}% {icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"],
   },
 
   "clock": {
     "interval": 60,
-    "format-alt": " {:%e %b %Y}", // Icon: calendar-alt
-    "format": "{:%H:%M}",
+    "format-alt": "󰃭 {:%e %b %Y}",
+    "format": "󰥔 {:%H:%M}",
     "tooltip-format": "{:%e %B %Y}",
   },
 
@@ -122,7 +122,7 @@
   },
 
   "custom/power": {
-    "format": "⏻",
+    "format": "󰐥",
     "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
     "tooltip": false,
   },
