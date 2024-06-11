@@ -40,7 +40,7 @@
     "format-ethernet": "󰈀 {ifname}", // Icon: ethernet
     "format-disconnected": "󰈂 Disconnected",
     "tooltip-format": "{ifname}: {ipaddr}",
-    "on-click": "kitty -e 'nmtui'",
+    "on-click": "foot -e 'nmtui'",
   },
 
   "idle_inhibitor": {
@@ -54,7 +54,7 @@
   "memory": {
     "interval": 5,
     "format": "󰍛 {}%",
-    "on-click": "kitty -e 'btop'",
+    "on-click": "foot -e 'btop'",
     "states": {
       "warning": 70,
       "critical": 90,
@@ -68,7 +68,7 @@
       "warning": 70,
       "critical": 90,
     },
-    "on-click": "kitty -e 'btop'",
+    "on-click": "foot -e 'btop'",
   },
 
   "pulseaudio": {

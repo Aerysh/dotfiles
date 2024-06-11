@@ -10,20 +10,8 @@
   }
 }
 
-@keyframes blink-critical {
-  70% {
-    color: @text;
-  }
-
-  to {
-    color: @red;
-  }
-}
-
-* {
-  border: none;
-  border-radius: 0;
-  min-height: 0;
+/* General styling for Waybar components */
+#waybar * {
   margin: 1px;
   padding: 0;
 }
@@ -31,13 +19,13 @@
 #waybar {
   color: @text;
   background: @base;
-  font-family:
-    Symbols Nerd Font,
-    Iosevka Nerd Font,
-    Noto Sans;
-  font-size: 12px;
+  font:
+    12px "Symbols Nerd Font",
+    "Iosevka Nerd Font",
+    "Noto Sans";
 }
 
+/* Shared padding and margin for specific elements */
 #battery,
 #clock,
 #backlight,
@@ -47,63 +35,43 @@
 #pulseaudio,
 #temperature,
 #tray,
+#workspaces,
 #idle_inhibitor {
   padding: 4px;
   margin: 4px;
 }
 
-#battery.warning.discharging {
-  animation: blink-warning 2s linear infinite alternate;
+/* Animation application for warning and critical states */
+.warning.discharging,
+.warning {
+  animation: blink 2s linear infinite alternate;
+}
+.critical.discharging,
+.critical {
+  animation: blink 2s ease-in-out infinite alternate;
 }
 
-#battery.critical.discharging {
-  animation: blink-critical 2s linear infinite alternate;
-}
-
-#cpu.warning {
-  animation: blink-warning 2s linear infinite alternate;
-}
-
-#cpu.critical {
-  animation: blink-critical 2s linear infinite alternate;
-}
-
-#memory.warning {
-  animation: blink-warning 2s linear infinite alternate;
-}
-
-#memory.critical {
-  animation: blink-critical 2s ease-in-out infinite alternate;
-}
-
-#network.disconnected {
+/* Special cases coloring */
+#network.disconnected,
+#pulseaudio.muted {
   color: @peach;
 }
 
-#pulseaudio.muted {
-  color: @overlay2;
-}
-
-#window {
-  font-weight: bold;
-}
-
+/* Workspaces styling */
 #workspaces {
   font-size: 12px;
   color: @text;
   background-color: @surface0;
   border-radius: 8px;
-  padding: 4px;
 }
 
 #workspaces button {
   color: @text;
+  border-radius: inherit;
 }
 
 #workspaces button:hover {
-  color: @text;
   background: @surface1;
-  border-radius: 8px;
 }
 
 #workspaces button.empty {
@@ -123,19 +91,19 @@
   color: @text;
 }
 
-#tray {
-  background: @surface0;
+/* Tray and custom buttons */
+#tray,
+#custom-power,
+#custom-launcher {
   border-radius: 8px;
 }
 
-#custom-power {
-  margin-left: 12px;
-  margin-right: 12px;
-  font-size: 12px;
+#tray {
+  background-color: @surface0;
 }
 
+#custom-power,
 #custom-launcher {
   font-size: 12px;
-  margin-left: 12px;
-  margin-right: 12px;
+  margin: 0 12px;
 }

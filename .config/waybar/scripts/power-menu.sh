@@ -1,12 +1,12 @@
 #!/bin/bash
 
-entries="Logout Suspend Reboot Shutdown"
+entries=("Logout" "Suspend" "Reboot" "Shutdown")
 
-selected=$(printf '%s\n' $entries | wofi --conf=$HOME/.config/wofi/config.power --style=$HOME/.config/wofi/style.widgets.css | awk '{print tolower($1)}')
+selected=$(pkill wofi || printf "%s\n" "${entries[@]}" | wofi --conf="$HOME"/.config/wofi/config.power --style="$HOME"/.config/wofi/style.widgets.css)
 
 case $selected in
 logout)
-	exec pkill Hyprland || loginctl terminate-user $USER
+	exec pkill -u "$USER" Hyprland || loginctl terminate-user "$USER"
 	;;
 suspend)
 	exec systemctl suspend || loginctl suspend
