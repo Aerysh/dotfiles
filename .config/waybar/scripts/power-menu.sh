@@ -2,7 +2,7 @@
 
 entries=("Logout" "Suspend" "Reboot" "Shutdown")
 
-selected=$(pkill wofi || printf "%s\n" "${entries[@]}" | wofi --conf="$HOME"/.config/wofi/config.power --style="$HOME"/.config/wofi/style.widgets.css)
+selected=$(printf "%s\n" "${entries[@]}" | wofi --conf="$HOME"/.config/wofi/config.power --style="$HOME"/.config/wofi/style.widgets.css | awk '{print tolower($1)}')
 
 case $selected in
 logout)

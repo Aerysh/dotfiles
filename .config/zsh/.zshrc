@@ -43,6 +43,7 @@ alias mv="mv -v"
 alias cp="cp -vr"
 alias rm="rm -vr"
 alias ..="cd .."
+alias pn="pnpm"
 
 alias icat="kitten icat"
 
