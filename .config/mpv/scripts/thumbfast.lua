@@ -39,13 +39,13 @@ local options = {
 	quit_after_inactivity = 0,
 
 	-- Enable on network playback
-	network = false,
+	network = true,
 
 	-- Enable on audio playback
 	audio = false,
 
 	-- Enable hardware decoding
-	hwdec = false,
+	hwdec = true,
 
 	-- Windows only: use native Windows API to write to pipe (requires LuaJIT)
 	direct_io = false,
