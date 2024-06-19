@@ -6,14 +6,12 @@
 @define-color lavender #be95ff;
 
 * {
-  font-family: Iosevka Nerd Font Mono;
+  font-family: "Iosevka Nerd Font";
 }
 
 #window {
   background: rgba(22, 22, 22, 0.9);
   border-radius: 8px;
-  animation-name: fadeIn;
-  animation-duration: 300ms;
 }
 
 #entry {
@@ -41,13 +39,4 @@
 #text {
   color: @text;
   background: transparent;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }

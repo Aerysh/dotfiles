@@ -6,21 +6,11 @@
 @define-color lavender #be95ff;
 
 * {
-  font-family: Noto Sans;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  font-family: "Iosevka Nerd Font";
 }
 
 #window {
-  animation-name: fadeIn;
-  animation-duration: 300ms;
+  margin: 0px;
   background: rgba(22, 22, 22, 1);
   border-radius: 8px;
 }
@@ -29,8 +19,8 @@
   border: none;
   background: @surface0;
   border-radius: 8px;
-  margin: 2px 4px 2px 4px;
-  padding: 8px;
+  margin: 4px;
+  padding: 4px;
 }
 
 #inner-box {
