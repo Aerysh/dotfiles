@@ -1,0 +1,51 @@
+@define-color base #161616;
+@define-color surface0 #262626;
+@define-color surface1 #393939;
+@define-color text #f4f4f4;
+@define-color blue #4589ff;
+@define-color lavender #be95ff;
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+#window {
+  margin: 0px;
+  background: rgba(22, 22, 22, 1);
+  border-radius: 8px;
+}
+
+#input {
+  border: none;
+  background: @surface0;
+  border-radius: 8px;
+  margin: 4px;
+  padding: 4px;
+}
+
+#inner-box {
+  color: @text;
+  border-radius: 8px;
+}
+
+#outer-box {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  border: 1px solid @lavender;
+}
+
+#text {
+  color: @text;
+  background: transparent;
+}
+
+#entry {
+  border-radius: 8px;
+  padding: 4px 2px 4px 2px;
+  margin: 0px 4px 0px 4px;
+}
+
+#entry:selected {
+  color: @text;
+  background: @blue;
+}

@@ -1,0 +1,128 @@
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+  min-height: 0;
+  font-size: 100%;
+  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+}
+
+@import "./colors.css";
+
+window#waybar {
+  background-color: transparent;
+  color: @text;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+window#waybar.empty,
+window#waybar.empty #window {
+  background-color: transparent;
+  padding: 0px;
+  border: 0px;
+}
+
+#workspaces {
+  color: @text;
+}
+
+#workspaces button {
+  color: @overlay1;
+  padding: 0px;
+  padding-left: 4px;
+  padding-right: 4px;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+#workspaces button.persistent {
+  color: @surface1;
+}
+
+#workspaces button:hover {
+  color: @peach;
+  background: @surface0;
+  border: none;
+}
+
+#workspaces button.active {
+  color: @mauve;
+}
+
+#workspaces button.urgent {
+  color: @red;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  background: @base;
+  border: 0.5px solid @overlay0;
+  border-radius: 8px;
+}
+
+#cpu,
+#memory,
+#backlight,
+#battery,
+#idle_inhibitor,
+#workspaces,
+#tray,
+#pulseaudio,
+#network,
+#clock {
+  padding: 4px;
+}
+
+#cpu {
+  color: @green;
+}
+
+#memory {
+  color: @sky;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#battery {
+  color: @green;
+}
+
+#idle_inhibitor {
+  color: @blue;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+#pulseaudio {
+  color: @sapphire;
+}
+
+#network {
+  color: @teal;
+}
+
+#network.disconnected,
+#network.disabled {
+  background-color: @surface0;
+  color: @text;
+}
+
+#clock {
+  color: @yellow;
+}
+
+#window {
+  color: @mauve;
+}
