@@ -1,128 +1,183 @@
-* {
-  font-family: "JetBrainsMono Nerd Font";
-  font-weight: bold;
-  min-height: 0;
-  font-size: 100%;
-  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
-}
-
 @import "./colors.css";
 
-window#waybar {
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 8pt;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+/* Reset all styles */
+* {
+  border: none;
+  border-radius: 3px;
+  min-height: 0;
+  margin: 0.2em 0.3em 0.2em 0.3em;
+}
+
+/* The whole bar */
+#waybar {
+  /*background: @bg;*/
   background-color: transparent;
+  /*color: @light;*/
   color: @text;
   transition-property: background-color;
   transition-duration: 0.5s;
+  /*border-top: 8px transparent;*/
+  border-radius: 0px;
+  margin: 0px 0px;
 }
 
 window#waybar.hidden {
   opacity: 0.2;
 }
 
-window#waybar.empty,
-window#waybar.empty #window {
-  background-color: transparent;
-  padding: 0px;
-  border: 0px;
+tooltip {
+  background-color: @base;
+  border: 24px;
 }
 
-#workspaces {
+tooltip label {
   color: @text;
 }
 
 #workspaces button {
-  color: @overlay1;
-  padding: 0px;
-  padding-left: 4px;
-  padding-right: 4px;
-  box-shadow: none;
-  text-shadow: none;
-}
-
-#workspaces button.persistent {
-  color: @surface1;
-}
-
-#workspaces button:hover {
-  color: @peach;
-  background: @surface0;
+  padding: 0 0px;
+  color: @surface2;
+  background-color: transparent;
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each workspace name */
   border: none;
+  border-radius: 0;
 }
 
+#workspaces button.focused {
+  background-color: transparent;
+}
+#workspace button.hover {
+  background-color: transparent;
+}
 #workspaces button.active {
-  color: @mauve;
+  color: @text;
 }
 
 #workspaces button.urgent {
-  color: @red;
+  background-color: @red;
 }
 
-.modules-left,
-.modules-center,
-.modules-right {
-  background: @base;
-  border: 0.5px solid @overlay0;
-  border-radius: 8px;
+#window {
+  /* border-radius: 20px; */
+  /* padding-left: 10px; */
+  /* padding-right: 10px; */
+  color: @surface2;
 }
 
-#cpu,
-#memory,
+/* Each module */
+#clock,
 #backlight,
+#memory,
+#cpu,
 #battery,
-#idle_inhibitor,
-#workspaces,
-#tray,
-#pulseaudio,
-#network,
-#clock {
-  padding: 4px;
+#wireplumber,
+#custom-power,
+#tray {
+  padding: 0px 16px;
+  color: @text;
+  /* color: #bf616a; */
+  border-radius: 24px;
+  background-color: @base;
+}
+
+#window,
+#workspaces {
+  border-radius: 24px;
+  padding: 0px 8px;
+  background-color: @base;
 }
 
 #cpu {
-  color: @green;
+  color: @pink;
+  background-color: @base;
 }
 
 #memory {
-  color: @sky;
+  color: @yellow;
+  background-color: @base;
+}
+
+#custom-power {
+  border-radius: 24px;
+  background-color: @base;
+  padding: 0 16px;
+}
+
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
 }
 
 #backlight {
-  color: @yellow;
+  color: @teal;
+}
+
+#clock {
+  color: @lavender;
 }
 
 #battery {
+  color: @text;
+}
+
+#battery.charging,
+#battery.full,
+#battery.plugged {
   color: @green;
 }
 
-#idle_inhibitor {
-  color: @blue;
+@keyframes blink {
+  to {
+    background-color: rgba(30, 34, 42, 0.5);
+    color: @surface2;
+  }
+}
+
+#battery.critical:not(.charging) {
+  color: @red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: @crust;
 }
 
 #tray > .passive {
   -gtk-icon-effect: dim;
 }
+
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
+  background-color: @red;
 }
 
-#pulseaudio {
-  color: @sapphire;
+#idle_inhibitor {
+  border-radius: 24px;
+  background-color: @base;
+  padding-left: 13px;
+  padding-right: 16px;
 }
 
-#network {
-  color: @teal;
-}
-
-#network.disconnected,
-#network.disabled {
-  background-color: @surface0;
-  color: @text;
-}
-
-#clock {
-  color: @yellow;
-}
-
-#window {
-  color: @mauve;
+#idle_inhibitor.activated {
+  color: @blue;
 }
