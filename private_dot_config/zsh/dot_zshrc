@@ -10,18 +10,17 @@ antidote load
 
 bindkey -e
 
+# fzf bindings
+eval "$(fzf --zsh)"
+
+# zoxide init
+eval "$(zoxide init --cmd cd zsh)"
+
 # History
-HISTSIZE=5000
 HISTFILE=$ZDOTDIR/.zsh_history
+HISTSIZE=10000
 SAVEHIST=$HISTSIZE
-HISTDUP=erase
 setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
 
 # Styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -42,8 +41,3 @@ alias mv="mv -v"
 alias cp="cp -vr"
 alias rm="rm -vr"
 alias ..="cd .."
-
-alias icat="kitten icat"
-
-eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"

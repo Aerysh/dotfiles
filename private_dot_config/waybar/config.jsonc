@@ -8,14 +8,16 @@
   "spacing": 4,
 
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["clock", "idle_inhibitor"],
+  "modules-center": ["hyprland/window"],
   "modules-right": [
-    "backlight",
-    "memory",
-    "cpu",
-    "battery",
+    "idle_inhibitor",
     "wireplumber",
-    "custom/power",
+    "cpu",
+    "memory",
+    "backlight",
+    "battery",
+    "clock",
     "tray",
+    "custom/power",
   ],
 }
