@@ -29,15 +29,12 @@
 
   "hyprland/window": {
     "format": "{}",
-    "max-length": 20,
+    "max-length": 50,
     "separate-outputs": true,
     "offscreen-css": true,
     "offscreen-css-text": "(inactive)",
     "rewrite": {
       "(.*) — Mozilla Firefox": "󰈹 $1",
-      "(.*) - fish": " [$1]",
-      "(.*) - zsh": " [$1]",
-      "(.*) - kitty": " [$1]",
     },
   },
 
@@ -49,17 +46,17 @@
     },
   },
 
-  "wireplumber": {
+  "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} 󰂰 {volume}%",
     "format-muted": "󰝟",
     "format-icons": {
-      "headphone": "󰋋 ",
-      "hands-free": "󰋎 ",
-      "headset": "󰋎 ",
-      "phone": "󰏲 ",
-      "portable": "󰏲 ",
-      "car": "󰄋 ",
+      "headphone": "󰋋",
+      "hands-free": "󰋎",
+      "headset": "󰋎",
+      "phone": "󰏲",
+      "portable": "󰏲",
+      "car": "󰄋",
       "default": ["󰕿", "󰖀", "󰕾"],
       "ignored-sinks": ["Easy Effects Sink"],
     },
@@ -85,7 +82,7 @@
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon} {percent}%",
-    "format-icons": ["󰃚 ", "󰃛 ", "󰃜 ", "󰃝 ", "󰃞 ", "󰃟 ", "󰃠 "],
+    "format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"],
     "on-scroll-down": "brightnessctl s 5%-",
     "on-scroll-up": "brightnessctl s +5%",
   },
@@ -100,7 +97,7 @@
     "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
     "format-plugged": "󰚥 {capacity}%",
-    "format-icons": [" ", " ", " ", " ", " "],
+    "format-icons": ["", "", "", "", ""],
   },
 
   "clock": {
@@ -114,11 +111,11 @@
       "weeks-pos": "right",
       "on-scroll": 1,
       "format": {
-        "months": "<span color='#ffead3'><b>{}</b></span>",
-        "days": "<span color='#ecc6d9'><b>{}</b></span>",
-        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+        "months": "<span color='#d4bbff'><b>{}</b></span>",
+        "days": "<span color='#f4f4f4'><b>{}</b></span>",
+        "weeks": "<span color='#42be65'><b>W{}</b></span>",
+        "weekdays": "<span color='#fddc69'><b>{}</b></span>",
+        "today": "<span color='#ff7eb6'><b><u>{}</u></b></span>",
       },
     },
     "actions": {

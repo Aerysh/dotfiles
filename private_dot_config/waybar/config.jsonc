@@ -11,7 +11,7 @@
   "modules-center": ["hyprland/window"],
   "modules-right": [
     "idle_inhibitor",
-    "wireplumber",
+    "pulseaudio",
     "cpu",
     "memory",
     "backlight",
