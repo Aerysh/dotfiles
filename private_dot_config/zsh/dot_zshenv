@@ -3,9 +3,19 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+
+export npm_config_prefix="$HOME/.local"
+export PATH="$HOME/.local/bin:$PATH"
+
+
+PATH="$HOME/.config/composer/vendor/bin:$PATH"
+
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
+
 export GPG_TTY="${TTY:-$(tty)}"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/gcr/ssh
 
 export EDITOR=nvim
 export TERM=kitty
-export BROWSER=firefox-esr
+export BROWSER=brave
