@@ -1,21 +1,26 @@
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CACHE_HOME=$HOME/.cache
-export XDG_DATA_HOME=$HOME/.local/share
-export XDG_STATE_HOME=$HOME/.local/state
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
+export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
 
-export PATH="$HOME/.config/composer/vendor/bin:$PATH"
-
-export npm_config_prefix="$HOME/.local"
-export PATH="$HOME/.local/bin:$PATH"
-
-
-PATH="$HOME/.config/composer/vendor/bin:$PATH"
-
-export HISTFILE="${XDG_STATE_HOME}"/bash/history
-
-export GPG_TTY="${TTY:-$(tty)}"
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/gcr/ssh
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
 
 export EDITOR=nvim
-export TERM=kitty
-export BROWSER=brave
+
+# History
+HISTFILE=$ZDOTDIR/.zsh_history
+HISTSIZE=10000
+SAVEHIST=$HISTSIZE
+setopt appendhistory
+
+typeset -gU path fpath
+
+
+path=(
+  $HOME/{,s}bin(N)
+  $HOME/.local/{,s}bin(N)
+  /usr/local/{,s}bin(N)
+
+  $path
+)
+
+export npm_config_prefix=$HOME/.local

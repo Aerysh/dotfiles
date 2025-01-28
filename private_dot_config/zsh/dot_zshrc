@@ -1,6 +1,13 @@
-autoload -Uz compinit && compinit
+#!/bin/zsh
 
-# Clone antidote if necessary.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Set zstyles
+[[ ! -f ${ZDOTDIR:-$HOME}/.zstyles ]] || source ${ZDOTDIR:-$HOME}/.zstyles
+
+# Clone antidote
 [[ -d ${ZDOTDIR:-~}/.antidote ]] ||
   git clone https://github.com/mattmc3/antidote ${ZDOTDIR:-~}/.antidote
 
@@ -8,36 +15,14 @@ autoload -Uz compinit && compinit
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 antidote load
 
-bindkey -e
+# Source .zshrc.d
+for _rc in ${ZDOTDIR:-$HOME}/.zshrc.d/*.zsh; do
+  # Ignore tilde files.
+  if [[ $_rc:t != '~'* ]]; then
+    source "$_rc"
+  fi
+done
+unset _rc
 
-# fzf bindings
-eval "$(fzf --zsh)"
-
-# zoxide init
-eval "$(zoxide init --cmd cd zsh)"
-
-# History
-HISTFILE=$ZDOTDIR/.zsh_history
-HISTSIZE=10000
-SAVEHIST=$HISTSIZE
-setopt appendhistory
-
-# Styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -l --color=always --icons $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -l --color=always --icons $realpath'
-
-# Aliases
-alias ls="eza --color=auto --icons"
-alias l="ls -l"
-alias la="ls -la"
-
-alias c="clear"
-alias q="exit"
-alias vim="nvim"
-alias mkdir="mkdir -p"
-alias mv="mv -v"
-alias cp="cp -vr"
-alias rm="rm -vr"
-alias ..="cd .."
+# To customize prompt, run `p10k configure` or edit .p10k.zsh.
+[[ ! -f ${ZDOTDIR:-$HOME}/.p10k.zsh ]] || source ${ZDOTDIR:-$HOME}/.p10k.zsh
