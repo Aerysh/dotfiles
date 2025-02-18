@@ -1,49 +1,36 @@
 {
   "hyprland/workspaces": {
-    "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
-    "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
+    "on-click": "activate",
     "active-only": false,
     "all-outputs": true,
-    "sort-by-number": true,
-    "format": "{icon}",
-    "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-    },
+    "format": "{}",
     "format-icons": {
-      "1": "一",
-      "2": "二",
-      "3": "三",
-      "4": "四",
-      "5": "五",
-      "6": "六",
-      "7": "七",
-      "8": "八",
-      "9": "九",
-      "10": "十",
+      "urgent": "",
+      "active": "",
+      "default": "",
+    },
+    "persistent-workspaces": {
+      "*": 5,
     },
   },
 
   "hyprland/window": {
-    "format": "{}",
     "max-length": 50,
-    "separate-outputs": true,
-    "offscreen-css": true,
-    "offscreen-css-text": "(inactive)",
     "rewrite": {
-      "(.*) — Mozilla Firefox": "󰈹 $1",
+      "(.*) - Mozilla Firefox": "$1",
+      "(.*) — Zen Browser": "$1",
     },
+    "separate-outputs": true,
   },
 
   "idle_inhibitor": {
     "format": "{icon}",
+    "tooltip": true,
     "format-icons": {
       "activated": "󰔡",
       "deactivated": "󰨙",
     },
+    "on-click-right": "hyprlock",
   },
 
   "pulseaudio": {
@@ -129,12 +116,12 @@
 
   "custom/power": {
     "format": "󰐥",
-    "tooltip": false,
+    "tooltip-format": "Power Menu",
     "on-click": "wlogout",
+    "tooltip": false,
   },
 
   "tray": {
-    "icon-size": 12,
-    "spacing": 4,
+    "spacing": 10,
   },
 }
